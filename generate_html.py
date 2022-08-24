@@ -2,13 +2,14 @@ from os.path import exists
 from xml.etree import ElementTree as ET
 
 
-def generate_html_page(div_children=1024):
+def generate_html_page(filename, div_children):
     """
+    :param filename: the html filename that will be generated
     :param div_children: Number of divs to be added to the body of the html page, along with the span element
     :return: None
     """
 
-    file_name = 'static_dir/page.html'
+    file_name = f'static_dir/{filename}.html'
     # Uncomment this to not overwrite the file each time
     # if exists(file_name):
     #     return

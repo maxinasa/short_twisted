@@ -5,7 +5,7 @@ from twisted.web.resource import Resource
 from twisted.web.server import Site
 from twisted.web import static
 
-from resources import AStreamHandlerResource, AHtmlHandlerResource, MP4HandlerResource
+from resources import AStreamHandlerResource, AHtmlHandlerResource, MP4HandlerResource, ABigHtmlHandlerResource
 
 logger = logging.getLogger(__name__)
 
@@ -18,6 +18,7 @@ class ClientApiHttpServer:
         root.putChild(b"static", static.File('./static_dir'))
         root.putChild(b"stream", AStreamHandlerResource(component))
         root.putChild(b"html", AHtmlHandlerResource(component))
+        root.putChild(b"html-big", ABigHtmlHandlerResource(component))
         root.putChild(b"video", MP4HandlerResource(component))
         self.factory = Site(root)
         # self.factory.displayTracebacks = False

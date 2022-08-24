@@ -55,8 +55,8 @@ if __name__ == '__main__':
     observer = twisted_log.PythonLoggingObserver()
     observer.start()
 
-    number_of_divs = 1025
-    generate_html_page(number_of_divs)
+    generate_html_page('page', 3)
+    generate_html_page('big_page', 1025)
 
     logger.info('Starting reactor')
     component = Component(custom_reactor=asyncioreactor.AsyncioSelectorReactor(), port=PORT)

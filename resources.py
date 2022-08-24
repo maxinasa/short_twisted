@@ -57,6 +57,20 @@ class AHtmlHandlerResource(Resource):
             return f.read()
 
 
+class ABigHtmlHandlerResource(Resource):
+
+    def __init__(self, component):
+        super().__init__()
+        self.component = component
+
+    def render_GET(self, request):
+        request.setHeader("Content-Type", "text/html; charset=UTF-8")
+
+        file_name = 'static_dir/big_page.html'
+        with open(file_name, 'rb') as f:
+            return f.read()
+
+
 class MP4HandlerResource(Resource):
 
     def __init__(self, component):
