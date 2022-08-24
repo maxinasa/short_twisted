@@ -1,4 +1,5 @@
 import logging.config
+import os
 
 from twisted.internet import asyncioreactor
 from twisted.python import log as twisted_log
@@ -7,7 +8,7 @@ from generate_html import generate_html_page
 from servlets import Component
 
 logger = logging.getLogger(__name__)
-PORT = 8000
+PORT = int(os.environ.get('PORT', 17995))
 
 
 LOG_SETUP = {
